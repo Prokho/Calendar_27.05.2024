@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .red{color:red;
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 20vh;
+  
+  }

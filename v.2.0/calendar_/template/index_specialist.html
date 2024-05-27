@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+      <link rel="stylesheet" href="{% static '/css/calendar.css'%}?date={% now 'jS-F-Y-H:i'%}">
+      <script src="{% static '/js/specialist/constants.js'%}"></script>
+      <script src="{% static '/js/specialist/indexspecialist.js'%}"></script>
+      <script src="{% static '/js/specialist/timeslots_specialist.js'%}"></script>
+      <script src="{% static '/js/specialist/calendar_specialist.js'%}"></script>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        
+    </head>
+    <body>
+
+
+      <div class="form_auth_block">
+        <div class="form_auth_block_content">
+          <p class="form_auth_block_head_text">Авторизация</p>
+          <form class="form_auth_style" action="/api-token-auth/" method="post" enctype="multipart/form-data">
+            <label>Введите Ваш имейл</label>
+            <input type="username" id="username" name="username" placeholder="Введите Ваш имейл" required >
+            <label>Введите Ваш пароль</label>
+            <input type="password" id="auth_pass" name="auth_pass" placeholder="Введите пароль" required >
+            <button class="form_auth_button" type="button" id="button" name="form_auth_submit">Войти</button>
+          </form>
+        </div>
+      </div>
+    
+      <script>
+        var specialistController = new SpecialistController(".form");
+        specialistController.start();
+        let button = document.getElementById("button");
+        if(button){
+          button.onclick = function() {
+            specialistController.loadAuthData();
+            return false;
+        }
+        }
+        
+    </script>
+
+   
+    </body>
+</html>
+
+
+
+
+
+
+

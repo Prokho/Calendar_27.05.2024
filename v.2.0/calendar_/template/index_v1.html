@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="{% static '/css/calendar.css'%}?date={% now 'jS-F-Y-H:i'%}">
+        <script src="{% static '/js/index.js'%}?date={% now 'jS-F-Y-H:i'%}"></script>
+        <script src="{% static '/js/typeAppointment.js'%}?date={% now 'jS-F-Y-H:i'%}"></script>
+        <script src="{% static '/js/api.js'%}?date={% now 'jS-F-Y-H:i'%}"></script>
+        <script src="{% static '/js/list_specialist.js'%}?date={% now 'jS-F-Y-H:i'%}"></script>
+        <script src="{% static '/js/calendar.js'%}?date={% now 'jS-F-Y-H:i'%}"></script>
+        <script src="{% static '/js/timeslots.js'%}?date={% now 'jS-F-Y-H:i'%}"></script>
+        <script src="{% static '/js/appointmentSignUp.js'%}?date={% now 'jS-F-Y-H:i'%}"></script>
+        <script src="{% static '/js/appointment.js'%}?date={% now 'jS-F-Y-H:i'%}"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+        <style>
+            .specialist_item
+            {
+                font-size: x-large;
+            }
+            html, body
+            {
+                height: 100%;
+            }
+            .content
+            {
+                min-height: 100%;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="content conainer-fluid">
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-10 col-md-6 offset-1 offset-md-3 rounded"> 
+                        При возникновении проблем свяжитесь с нами по телефону
+                        <a href="tel:+79645224966">+7&nbsp;964&nbsp;522&#8209;49&#8209;66</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            var controler = new Controler(".content");
+            controler.start();
+            window.onhashchange = function() {
+                controler.start();
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+

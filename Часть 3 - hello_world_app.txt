@@ -1,0 +1,37 @@
+1. идем в файл views.py приложения (first_project\test_app)
+2. вносим изменения для создания представления
+дописываем в файл
+
+from django.http import HttpResponse#добавили возможность отправлять HTTP ответы от сервера
+
+#добавили функцию отвечающую на зпрос пользователя
+def index(request):
+    return HttpResponse("Test app started")
+
+3. в папке приложения создаем файл first_project\test_app\urls.py 
+4. в файл first_project\test_app\urls.py 
+    связываем url и функцию отвечающую за представление
+дописываем 
+from django.urls import path #добавляем функцию "путь" из питона
+
+from . import views#добавили файл содержащий представления
+
+#добавилис список содержаший связик путь - функция - имя(не обязаетльно)
+urlpatterns = [
+    path('', views.index, name='index'),] # в скобках указаны параметры функции path - урл пути, виды вьюс и название пути
+
+5. в файл проекта(не приложения) first_project\папка train\urls.py 
+    вносим измения связывающие его с файлом first_project\test_app\urls.py
+	не забываем подключить функцию include
+в итоге пишем 
+from django.contrib import admin
+from django.urls import include, path
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('имя приложения (название папки).urls')),
+]
+
+6. активировать виртуальное окружение env 
+6. запускаем сервер из папки проекта (не приложения) first_project
+     python manage.py runserver

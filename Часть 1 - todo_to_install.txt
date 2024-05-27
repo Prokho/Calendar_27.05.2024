@@ -1,0 +1,10 @@
+1. создаем отдельную папку под проект
+2. создаем виртуальное окружение
+	2.1. "откываем" папку в командной строе
+	2.2. python -m venv env или C:\Users\HP\AppData\Local\Programs\Python\Python39\python.exe -m venv env
+3. активируем виртульаное окружение
+	запускаем через командную строку файл activate из
+	папки виртульного окружения
+	env\Scripts\activate
+4. устанавливаем джанго
+	pip install django
